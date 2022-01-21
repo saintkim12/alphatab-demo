@@ -18,5 +18,7 @@ module.exports = {
       version: 26,
     },
   },
-  rules: {},
+  rules: {
+    'react/self-closing-comp': false,
+  },
 }

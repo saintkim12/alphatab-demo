@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@coderline/alphatab": "^1.2.2",
+    "htm": "^3.1.0",
     "preact": "^10.5.15"
   },
   "devDependencies": {
