@@ -318,12 +318,14 @@
     const $_element = document.getElementById('alphaTab');
     // const $_api = new alphaTab.AlphaTabApi($_element);
     const $_api = new alphaTab.AlphaTabApi($_element)
-    const notes = `
-        :4 0.6 1.6 3.6 0.5 2.5 3.5 0.4 2.4 |
-           3.4 0.3 2.3 0.2 1.2 3.2 0.1 1.1 |
-           3.1.1`
+    const $_notes = [
+           `0.6 1.6 3.6 0.5 2.5 3.5 0.4 2.4 |`,
+           `3.4 0.3 2.3 0.2 1.2 3.2 0.1 1.1 |`,
+           `3.1.1`,
+    ]
+    // window.setInterval(() => {
     window.setTimeout(() => {
-      $_api.tex(`
+      const tex = `
         \\title "Song Title"
         \\subtitle Subtitle
         \\artist Artist
@@ -336,8 +338,11 @@
         \\capo 2
         \\tuning e5 b4 g4 d4 a3 e3 
         .
-      ` + notes)
-    }, 3000)
+        :4 
+      ` + $_notes.slice(0, ((window.$_test_idx = (window.$_test_idx ?? 0) + 1) % $_notes.length) + 1).join('\n')
+      console.log('tex', tex)
+      $_api.tex(tex)
+    }, 1000)
   </script>
 
   <template id="at-track-template">
@@ -365,28 +370,7 @@
         scrollElement: wrapper.querySelector('.at-viewport')
       },
     };
-    // const api = new alphaTab.AlphaTabApi(main, settings);
-    const api = new alphaTab.AlphaTabApi(`
-      // Song information (only at the beginning)
-          \title "Song Title"
-          \subtitle Subtitle
-          \artist Artist
-          \album 'My Album' 
-          \words Daniel
-          \music alphaTab
-          \copyright Daniel
-          // Tempo in BPM
-          \tempo 200
-      // Track and Staff Settings (can be used after \track and staff) 
-          // Instrument as General Midi number or name
-          \instrument 30 
-          // Capo fret
-          \capo 2
-          // String tuning starting at the most bottom string
-          \tuning e5 b4 g4 d4 a3 e3 
-      // end of metadata
-      .        
-    `);
+    const api = new alphaTab.AlphaTabApi(main, settings);
 
     // overlay logic
     const overlay = wrapper.querySelector(".at-overlay");
