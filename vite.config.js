@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [preact()],
   server: {
     port: 50000
-  }
+  },
 })
