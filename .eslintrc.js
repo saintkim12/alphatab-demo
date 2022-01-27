@@ -19,6 +19,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'jest/no-deprecated-functions': false,
+    'no-unused-vars': 'warn',
+    'jest/no-deprecated-functions': 'off',
   },
 }
