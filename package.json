@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@coderline/alphatab": "^1.2.2",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "preact": "^10.5.15"
   },
   "devDependencies": {
